@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppMovil_Pokemon.ViewModels"
+             x:Class="AppMovil_Pokemon.Views.ViewSeleccion"
+             Title="Elegir Pokemon">
+
+    <ContentPage.BindingContext>
+        <local:ViewModelSeleccion></local:ViewModelSeleccion>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#1D2C5E" Padding="24" CornerRadius="0">
+                <Label Text="Selecciona un pokemon" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+            </Frame>
+
+            <Image Source="https://lh3.googleusercontent.com/9FHOk79iiGEisBJxkU9smRi8CUKagEkt_yl7T7z9mEBHypSg5sblsGkv1YOxj-4vCpVbYUeo7dC6q2rxiHn9fNlcBxXGabLd7RpsNC6MHrwCRw=rw-e365-w1440"></Image>
+
+            <Picker Title="Entrenador" ItemsSource="{Binding listaEntrenador}" SelectedItem="{Binding EntrenadorSeleccionado}" ></Picker>
+
+            <Picker Title="Pokemon" ItemsSource="{Binding pokes}" SelectedItem="{Binding PokemonSeleccionado}" ></Picker>
+
+            <Picker Title="Pokemon" ItemsSource="{Binding pokesEnemigos}" SelectedItem="{Binding EntrenadorEnemigo}" ></Picker>
+
+            <Label Text="{Binding Mensaje }"></Label>
+
+            <Button Text="Batalla" Command="{Binding CrearPelea}"  ></Button>
+            
+            
+
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

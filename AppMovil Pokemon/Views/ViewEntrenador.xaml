@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppMovil_Pokemon.ViewModels"
+             x:Class="AppMovil_Pokemon.Views.ViewEntrenador"
+             Title="Entrenador">
+             
+    
+    <ContentPage.BindingContext>
+        <local:ViewModelEntrenador></local:ViewModelEntrenador>
+    </ContentPage.BindingContext>
+
+
+    <StackLayout>
+        <Frame BackgroundColor="#1D2C5E" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Pokemon Stadium!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Image Source="https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo.png" Aspect="AspectFit" Scale="0.5"></Image>
+
+        <Label Margin="10" Text="Preparate para el combate" FontSize="16" FontAttributes="Bold"></Label>
+
+        <Label Text="Nombre de Entrenador"></Label>
+        <Entry Text="{ Binding NombreEntrenador}" Keyboard="Text" Placeholder="Ej. Leonel Messi"></Entry>
+
+
+        <ListView ItemsSource="{Binding ListaEntrenador }">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding nombreEntrenador}"></Label>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding ciudad}"></Label>
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Crear Entrenador" Command="{Binding CrearEntrenador}" ></Button>
+    </StackLayout>
+</ContentPage>
